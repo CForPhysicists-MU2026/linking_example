@@ -53,3 +53,31 @@ By convention a header file gets the same name as the corresponding c-file, but 
 ```
 
 Note, that I included this header with quotation marks, rather than angle brackets. Angle brackets tell the compiler to look for a header in the standard system files installed with your compiler. Quotation marks tell the compiler to look relative to the file that does the including. So in our case the compiler will look into the directory where 'main.c' is located.
+
+# Compiling files separately
+
+C is optimized to handle big OS-size projects. Since compiling a large code base can take time, it is designed to be able to compile parts of the program separately of one another. To compile only the 'main.c' file type:
+
+```text
+gcc -c -o main.o main.c
+```
+
+It is convention to name program parts after the file name they were made of with a .o at the end.
+
+Similarly the sqrt file can be compiled:
+
+```text
+gcc -c -o sqrt.o sqrt.c
+```
+
+To put the program together from precompiled parts use:
+
+```text
+gcc -o prog main.o sqrt.o -lm
+```
+
+Here it should be mentioned that gcc uses three steps to create a program:
+
+1. The preprocessor prepares the code for compilation. This includes among other things copying the content of all included headers to the top of the code.
+2. The compiler translate the code in ELF code that can be executed on the machine. .c files are translated into .o files.
+3. The Linker 'links' all the parts of the program that exist in various .o files and libraries and creates the final program.
