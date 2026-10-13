@@ -34,3 +34,12 @@ double MySqrt( double a )
 ```
 
 A function always has to be *declared* before it is used, but it can be defined anywhere.
+
+
+# Moving the calculation to a separate file
+
+As I mentioned above, the function definition can be anywhere. This includes in a different file. For our example I created the file 'sqrt.c' and moved the sqrt function there. This can be compiled using:
+
+```text
+gcc -o prog main.c sqrt.c -lm
+```
