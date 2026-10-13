@@ -1,8 +1,8 @@
+// standard libraries
 #include <stdio.h>
-#include <math.h>
 
-
-double MySqrt( double a );
+// my headers
+#include "sqrt.h"
 
 
 int main()
@@ -13,10 +13,4 @@ int main()
     printf( "The result is: %f\n", b );
 
     return 0;
-}
-
-
-double MySqrt( double a )
-{
-    return sqrt( a );
 }
