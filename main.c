@@ -1,7 +1,8 @@
+// standard libraries
 #include <stdio.h>
 
-
-double MySqrt( double a );
+// my headers
+#include "sqrt.h"
 
 
 int main()

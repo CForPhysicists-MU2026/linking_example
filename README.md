@@ -43,3 +43,13 @@ As I mentioned above, the function definition can be anywhere. This includes in 
 ```text
 gcc -o prog main.c sqrt.c -lm
 ```
+
+As you can imagine, this will end up making our 'main.c' crowded with forward declarations once our programs get a little larger. To prevent this from happening, we can create what is called a header file.
+
+By convention a header file gets the same name as the corresponding c-file, but with a '.h' at the end. The header file contains all the declarations needed, however, no definitions. The header can then be added to the 'main.c' by adding the following at the top of it:
+
+```c
+#include "sqrt.h"
+```
+
+Note, that I included this header with quotation marks, rather than angle brackets. Angle brackets tell the compiler to look for a header in the standard system files installed with your compiler. Quotation marks tell the compiler to look relative to the file that does the including. So in our case the compiler will look into the directory where 'main.c' is located.
